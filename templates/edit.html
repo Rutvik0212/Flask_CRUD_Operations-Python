@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S Manager</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div id="logo">
+            <span><a href="/home">S Manager</a></span>
+        </div>
+        <ul>
+            <li class="item"><a href="/home">Home</a></li>
+            <li class="item"><a href="{{url_for('manage')}}">Manage</a></li>
+            <li class="item"><a href="{{url_for('search')}}">Search</a></li>
+            <li class="item"><a href="{{url_for('about')}}">Feedback</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <div class="container">
+            <form action="{{url_for('update')}}" method="POST">
+                <div class="form">
+                    <input type="hidden" name="uid" value="{{row[0]}}"/>
+                </div>
+                <div class="form">
+                    <input type="text" name="sname" id="sname" placeholder="student name" value="{{row[1]}}"/>
+                </div>
+                <div class="form">
+                    <input type="text" name="div" id="div" placeholder="Division" value="{{row[2]}}"/>
+                </div>
+                <div class="form">
+                    <input type="text" name="cls" id="cls" placeholder="Standard" value="{{row[3]}}"/>
+                </div>
+                <div class="form">
+                    <input type="number" name="contact" id="contact" placeholder="Parents mobile number" value="{{row[4]}}"/>
+                </div>
+                <div class="form">
+                    <input type="submit" name="Update Student" value="Update Student" style="margin-top : 11px; margin-left: 184px;"/>
+                </div>
+                {{info}}
+        </div>
+
+    </section>
+    
+
+</body>
+</html>

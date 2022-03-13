@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S Manager</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div id="logo">
+            <span><a href="/home">S Manager</a></span>
+        </div>
+        <ul>
+            <li class="item"><a href="/home">Home</a></li>
+            <li class="item"><a href="{{url_for('manage')}}">Manage</a></li>
+            <li class="item"><a href="{{url_for('search')}}">Search </a></li>
+            <li class="item"><a href="{{url_for('about')}}">Feedback</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <div class="container">
+            <h1 style="padding-bottom: inherit;">Student Table</h1>
+            <table border = "2" width = "500">
+                <tr>
+                    <th> Student Name</th>
+                    <th> Div</th>
+                    <th>class</th>
+                    <th> Contact</th>
+                    <th colspan = "2"> Action</th>
+                </tr>
+                    
+                {% for row in userdata %}
+                    <tr align="center"> 
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td><a href="{{url_for('edit', id = row[0])}}">Edit</td>
+                        <td><a href="{{url_for('delete', id = row[0])}}">Delete</td>
+    
+                    </tr>    
+                {% endfor %}
+        </div>
+    </section>
+    <h4>Total number of rows {{length}}</h4>
+    
+</body>
+</html>

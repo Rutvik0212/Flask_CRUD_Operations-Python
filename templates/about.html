@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div id="logo">
+            <span><a href="/home">S Manager</a></span>
+        </div>
+        <ul>
+            <li class="item"><a href="/home">Home</a></li>
+            <li class="item"><a href="{{url_for('manage')}}">Manage</a></li>
+            <li class="item"><a href="{{url_for('search')}}">Search </a></li>
+            <li class="item"><a href="{{url_for('about')}}">Feedback</a></li>
+        </ul>
+
+    </nav>
+    <section id="home">
+        <div class="container">
+            <form action="{{url_for('feedback')}}" method = "POST">
+            
+          
+              <label for="firstname">First Name</label>
+              <input type="text" id="firstname" name="firstname" placeholder="Your name.." required>
+          
+              <label for="lastname">Last Name</label>
+              <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
+                    
+              <label for="subject">Subject</label>
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:120px" rows="5" required></textarea>
+          
+              <input type="submit" value="Submit" name="Submit">
+          
+            </form>
+            {{msg}}
+    </section>
+
+
+
+</body>
+
+</html>

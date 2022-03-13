@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="../static/login.css">
+
+</head>
+
+<body>
+  
+  <div id="login-form-wrap">
+    <h2>Login</h2>
+    <form id="login-form" action="{{url_for('sign_in')}}" method="POST">
+      <p>
+        <input type="text" id="Username" name="Username" placeholder="Username" required><i
+          class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input type="password" id="pwd" name="pwd" placeholder="Password" required><i
+          class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input type="submit" id="Login" value="Login">
+      </p>
+    </form>
+    <div id="create-account-wrap">
+      <p style="color: red;">{{info}}</p>
+      <p>Not a member? <a href="/craccount">Create Account</a>
+      <p>
+    </div>
+  </div>
+  
+
+</body>
+
+</html>
